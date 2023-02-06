@@ -1,0 +1,146 @@
+#include<stdio.h>
+#include<string.h>
+char login();
+char Menu();
+char ContactUS();
+char Scammed();
+char reportid();
+char bankdetails();
+int main()
+{
+	
+	printf("                               ______________________________________________________________________________________________\n");
+    printf("                              |                                     Ganpat University                                        |\n");
+    printf("                              |----------------------------------------------------------------------------------------------|\n");
+    printf("                              |                                         PID: 204                                             |\n");
+    printf("                              |                                     Project Name: RFID Enabled Credit and Debit Cards        |\n");
+    printf("                              |                                     Subject: ESFP-1                                          |\n");
+    printf("                              |                                        Batch: 13                                             |\n");
+    printf("                              |                                  Enrollment No.: CS43                                        |\n");
+    printf("                              |                                       Designed by                                            |\n");
+    printf("                              |                                          DEVANSH                                             |\n");
+    printf("                              |______________________________________________________________________________________________|\n");
+
+
+	
+	login();
+	return 0;
+}
+char login()
+{
+    char userid[20],password[20];
+    int x,y;
+    printf("Enter your userid:");
+    scanf("%s",userid);
+    printf("\nEnter your password:");
+    scanf("%s",password);
+    x=strcmp(userid,"Safe-Cred");
+    if(x==0)
+    {
+        y=strcmp(password,"123");
+        if(y==0)
+        {
+            printf("\nLogin Successfull\n");
+            Menu();
+        }
+        else
+        {
+            printf("Invalid Password");
+        }
+    }
+    else
+    {
+        printf("Invalid Username");
+        login();
+    }
+}
+char Menu()
+{
+    int choice;
+    printf("\n\n\nSafe-Cred:\n");
+    printf("\nPress 1 To Contact US \n");
+    printf("\nPress 2 Scammed by a Scammer\n");
+    printf("\nPress 3 to check your status on pendeing report");
+    printf("\nPress 0 to Exit\n");
+    printf("\nEnter Your choice:");
+    scanf("%d",&choice);
+    switch(choice)
+    {
+        case 1:
+        ContactUS();
+        break;
+        case 2:
+        Scammed();
+        break;
+        case 3:
+        reportid();
+        break;
+        case 0:
+        break;
+        default:
+        printf("Invalid choice");
+        break;
+    }
+}
+char ContactUS()
+{
+	int select;
+	printf("\nMobile no:-+91 8469037799\t");
+    printf("Mail:-Devansh koyani\t");
+}
+char Scammed()
+{
+	char cd[20],bn[20],n[20],mb[20],sm[100];
+    int select1;
+    printf("\n\n\nIF you are scammed by a scammer just fill the details below our cyber team will help you.\n");
+    printf("\nCredit card number:-\t");
+    scanf("%s",cd);
+    printf("Bank Name:-\t");
+    scanf("%s",bn);
+    printf("Your name:-\t");
+    scanf("%s",n);
+    printf("Mobile number:-\t");
+    scanf("%s",mb);
+    printf("How you were scammed:-\t");
+    scanf("%s",sm);
+    printf("Your report id is 007\n");
+    Menu();
+}
+    
+char reportid()
+{
+	char code[20];
+	int z,back;
+	printf("\n\n\nEnter your report code:-");
+	scanf("%s",code);
+	z=strcmp(code,"007");
+    if(z==0)
+    {
+    	printf("\nYour report has been solved your money will be transfered in 7 working days with the help of you bank \n");
+    	bankdetails();
+	}
+	else
+	{
+		printf("\nInvalid report id Code");
+		Menu();
+	}
+}
+char bankdetails()
+{
+    char number[30];
+	int a;
+	printf("\n\n\nEnter your Credit card number(1111-2222-3333-4444):-");
+	scanf("%s",number);
+	a=strcmp(number,"1111-2222-3333-4444");
+    if(a==0)
+    {
+    	printf("\nYour Money will be transferred in this acc in 7 working days.\n");
+    	Menu();
+	}
+	else
+	{
+		printf("\nInvalid Number");
+		bankdetails();
+	}   
+}
+
